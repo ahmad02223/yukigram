@@ -47,7 +47,7 @@ jobs:
     strategy:
       matrix:
         arch: [Win32, x64]
-        generator: [""]
+        generator: ["", "Ninja Multi-Config"]
 
     env:
       UPLOAD_ARTIFACT: "true"
@@ -161,7 +161,8 @@ jobs:
           %TDESKTOP_BUILD_API% ^
           -D DESKTOP_APP_DISABLE_AUTOUPDATE=ON ^
           -D DESKTOP_APP_DISABLE_CRASH_REPORTS=OFF ^
-          -D DESKTOP_APP_NO_PDB=ON -U DESKTOP_APP_DISABLE_X11_INTEGRATION
+          -D DESKTOP_APP_NO_PDB=ON ^
+          -D CMAKE_BUILD_TYPE=Release
 
           cmake --build ..\out --config Release --parallel
 
