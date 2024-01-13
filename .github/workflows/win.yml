@@ -164,6 +164,12 @@ jobs:
           -D DESKTOP_APP_NO_PDB=ON ^
           -D CMAKE_BUILD_TYPE=Release
 
+          if exist CMakeFiles/impl-Release.ninja ( 
+            echo ===========================================================================================================
+            type CMakeFiles/impl-Release.ninja
+            echo ===========================================================================================================
+          )
+
           cmake --build ..\out --config Release --parallel
 
       - name: Move artifact.
