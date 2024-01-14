@@ -162,13 +162,8 @@ jobs:
           -D DESKTOP_APP_DISABLE_AUTOUPDATE=ON ^
           -D DESKTOP_APP_DISABLE_CRASH_REPORTS=OFF ^
           -D DESKTOP_APP_NO_PDB=ON ^
-          -D CMAKE_BUILD_TYPE=Release
-
-          if exist CMakeFiles/impl-Release.ninja ( 
-            echo ===========================================================================================================
-            type CMakeFiles/impl-Release.ninja
-            echo ===========================================================================================================
-          )
+          -D CMAKE_BUILD_TYPE=Release ^
+          --trace
 
           cmake --build ..\out --config Release --parallel
 
