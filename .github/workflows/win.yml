@@ -166,7 +166,7 @@ jobs:
           -Wno-error=dev ^
           --trace
 
-          cmake --build ..\out --config Release --parallel
+          cmake --build ..\out --config Release --parallel -Wno-error=dev
 
       - name: Move artifact.
         if: (env.UPLOAD_ARTIFACT == 'true') || (github.ref == 'refs/heads/nightly')
